@@ -1,0 +1,22 @@
+---
+name: actionlint
+permissions: {}
+on:
+  push:
+    branches: [master]
+    paths:
+      - .github/**
+  pull_request:
+    branches: [master]
+    paths:
+      - .github/**
+jobs:
+  default:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: khulnasoftproj/khulnasoft-installer@main
+      - run: actionlint
