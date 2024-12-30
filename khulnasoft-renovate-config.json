@@ -1,0 +1,17 @@
+{
+   "customManagers": [
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "khulnasoft-lab/khulnasoft-renovate-config",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            "\"github>khulnasoft-lab/khulnasoft-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
+            "\"github>khulnasoft-lab/khulnasoft-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
+            "\"github>khulnasoft-lab/khulnasoft-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
+         ]
+      }
+   ]
+}
