@@ -1,0 +1,31 @@
+{
+  extends: [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    "github>khulnasoft-lab/khulnasoft-renovate-config#2.6.0",
+  ],
+  automerge: true,
+  platformAutomerge: true,
+  prHourlyLimit: 0,
+  prConcurrentLimit: 0,
+  branchConcurrentLimit: 0,
+  customManagers: [
+    {
+      fileMatch: ["README\\.md"],
+      matchStrings: [
+        "(version|ref): \"?(?<currentValue>.*)\"? +# renovate: depName=(?<depName>.*)"
+      ],
+      datasourceTemplate: "github-releases",
+    },
+    {
+      fileMatch: ["README\\.md"],
+      "matchStrings": [
+        "\"github>khulnasoft-lab/khulnasoft-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>khulnasoft-lab/khulnasoft-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>khulnasoft-lab/khulnasoft-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "khulnasoft-lab/khulnasoft-renovate-config"
+    }
+  ]
+}
